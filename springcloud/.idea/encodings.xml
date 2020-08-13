@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/springcloud-00-eureka/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-01-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-01-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-02-consumer-feign/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-02-provider-01/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-02-provider-02/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-02-serviceapi/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-03-consumer-feign-hytrix/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-03-consumer-hystrix/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-04-config-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-04-config-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-04-config-server/src/main/resources/application.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-05-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-05-gateway/src/main/resources/application.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-05-service01/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-05-service01/src/main/resources/application.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-05-service02/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+  </component>
+</project>

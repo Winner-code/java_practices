@@ -1,0 +1,11 @@
+
+#指定服务的名称
+dubbo:
+  application:
+    name: myConsumer
+  registry:
+    address: zookeeper://192.168.0.110:2181?backup=192.168.0.110:2182,192.168.0.110:2183
+    timeout: 10000
+  #配置服务所使用的协议
+  protocol:
+    name: dubbo

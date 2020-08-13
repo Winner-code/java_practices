@@ -1,0 +1,42 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: consumer-feign
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+#开启feign对hystrix的支持
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enable: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+      fallback:
+        enabled: true # 当远程调用失败或者请求被拒绝，是否会尝试调用fallback方法 。默认true
+      circuitBreaker: # 服务熔断（Circuit Breaker）相关配置属性
+        enabled: true # 是否开启熔断器。默认true
+        requestVolumeThreshold: 20 # 默认20个;10s内请求数大于20个时就启动熔断器，当请求符合熔断条件时将触发fallback逻辑
+        errorThresholdPercentage: 50 # 请求错误率大于50%时就熔断，然后for循环发起请求，当请求符合熔断条件时将触发
+        sleepWindowInMilliseconds: 5000 # 默认5秒;熔断多少秒后去尝试请求
+        forceOpen: false # 是否强制打开熔断器， 默认false
+        forceClosed: false # 是否强制关闭熔断器， 默认false
+# 开启的actuator监控路径，默认开启info和health。其他需要手工增加，使用*代表开启所有监控路径。
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - info
+          - health
+          - hystrix.stream
+

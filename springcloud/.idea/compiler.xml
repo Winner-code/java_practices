@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springcloud-02-provider-02" />
+        <module name="springcloud-02-provider-01" />
+        <module name="springcloud-05-service01" />
+        <module name="springcloud-03-consumer-hystrix" />
+        <module name="springcloud" />
+        <module name="springcloud-04-config-client" />
+        <module name="springcloud-03-consumer-feign-hytrix" />
+        <module name="springcloud-00-eureka" />
+        <module name="springcloud-02-serviceapi" />
+        <module name="springcloud-01-provider" />
+        <module name="springcloud-04-config-server" />
+        <module name="springcloud-05-service02" />
+        <module name="springcloud-05-gateway" />
+        <module name="springcloud-01-consumer" />
+        <module name="springcloud-02-consumer-feign" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="springcloud" target="1.8" />
+      <module name="springcloud-00-eureka" target="1.8" />
+      <module name="springcloud-01-consumer" target="1.8" />
+      <module name="springcloud-01-provider" target="1.8" />
+      <module name="springcloud-02-consumer-feign" target="1.8" />
+      <module name="springcloud-02-provider-01" target="1.8" />
+      <module name="springcloud-02-provider-02" target="1.8" />
+      <module name="springcloud-02-serviceapi" target="1.8" />
+      <module name="springcloud-03-consumer-feign-hytrix" target="1.8" />
+      <module name="springcloud-03-consumer-hystrix" target="1.8" />
+      <module name="springcloud-04-config-client" target="1.8" />
+      <module name="springcloud-04-config-server" target="1.8" />
+      <module name="springcloud-05-gateway" target="1.8" />
+      <module name="springcloud-05-service01" target="1.8" />
+      <module name="springcloud-05-service02" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="springcloud" options="-parameters" />
+      <module name="springcloud-00-eureka" options="-parameters" />
+      <module name="springcloud-01-consumer" options="-parameters" />
+      <module name="springcloud-01-provider" options="-parameters" />
+      <module name="springcloud-02-consumer-feign" options="-parameters" />
+      <module name="springcloud-02-provider-01" options="-parameters" />
+      <module name="springcloud-02-provider-02" options="-parameters" />
+      <module name="springcloud-02-serviceapi" options="-parameters" />
+      <module name="springcloud-03-consumer-feign-hytrix" options="-parameters" />
+      <module name="springcloud-03-consumer-hystrix" options="-parameters" />
+      <module name="springcloud-04-config-client" options="-parameters" />
+      <module name="springcloud-04-config-server" options="-parameters" />
+      <module name="springcloud-05-gateway" options="-parameters" />
+      <module name="springcloud-05-service01" options="-parameters" />
+      <module name="springcloud-05-service02" options="-parameters" />
+    </option>
+  </component>
+</project>

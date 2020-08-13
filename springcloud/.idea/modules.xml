@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/springcloud.iml" filepath="$PROJECT_DIR$/springcloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-00-eureka/springcloud-00-eureka.iml" filepath="$PROJECT_DIR$/springcloud-00-eureka/springcloud-00-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-01-consumer/springcloud-01-consumer.iml" filepath="$PROJECT_DIR$/springcloud-01-consumer/springcloud-01-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-01-provider/springcloud-01-provider.iml" filepath="$PROJECT_DIR$/springcloud-01-provider/springcloud-01-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-02-consumer-feign/springcloud-02-consumer-feign.iml" filepath="$PROJECT_DIR$/springcloud-02-consumer-feign/springcloud-02-consumer-feign.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-02-provider-01/springcloud-02-provider-01.iml" filepath="$PROJECT_DIR$/springcloud-02-provider-01/springcloud-02-provider-01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-02-provider-02/springcloud-02-provider-02.iml" filepath="$PROJECT_DIR$/springcloud-02-provider-02/springcloud-02-provider-02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-02-serviceapi/springcloud-02-serviceapi.iml" filepath="$PROJECT_DIR$/springcloud-02-serviceapi/springcloud-02-serviceapi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-03-consumer-feign-hytrix/springcloud-03-consumer-feign-hytrix.iml" filepath="$PROJECT_DIR$/springcloud-03-consumer-feign-hytrix/springcloud-03-consumer-feign-hytrix.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-03-consumer-hystrix/springcloud-03-consumer-hystrix.iml" filepath="$PROJECT_DIR$/springcloud-03-consumer-hystrix/springcloud-03-consumer-hystrix.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-04-config-client/springcloud-04-config-client.iml" filepath="$PROJECT_DIR$/springcloud-04-config-client/springcloud-04-config-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-04-config-server/springcloud-04-config-server.iml" filepath="$PROJECT_DIR$/springcloud-04-config-server/springcloud-04-config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-05-gateway/springcloud-05-gateway.iml" filepath="$PROJECT_DIR$/springcloud-05-gateway/springcloud-05-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-05-service01/springcloud-05-service01.iml" filepath="$PROJECT_DIR$/springcloud-05-service01/springcloud-05-service01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-05-service02/springcloud-05-service02.iml" filepath="$PROJECT_DIR$/springcloud-05-service02/springcloud-05-service02.iml" />
+    </modules>
+  </component>
+</project>

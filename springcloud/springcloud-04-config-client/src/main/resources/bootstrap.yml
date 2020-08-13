@@ -1,0 +1,21 @@
+#设置配置管理中心服务端连接信息
+#config-server中的地址端口号
+spring:
+  cloud:
+    config:
+      #confi-server服务端的IP:端口信息
+      uri: http://localhost:8082
+      #远程仓库的配置文件名称等信息
+      name: application-service-config
+      profile: default
+      label: master
+#开启刷新端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - refresh # 开启热刷新服务， 也可以在Gitee中的配置文件内定义。
+          - info
+          - health
+

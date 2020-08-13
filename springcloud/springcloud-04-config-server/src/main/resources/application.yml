@@ -1,0 +1,16 @@
+#设置运行端口
+server:
+  port: 8082
+#设置应用名称
+spring:
+  application:
+    name: config-server
+  #设置远程仓库连接信息
+  cloud:
+    config:
+      server:
+        git:
+          password: GX2013101010gitee
+          username: 18534410860@163.com
+          uri: https://gitee.com/Winner-code/test-springcloud.git
+

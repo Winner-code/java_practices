@@ -1,0 +1,7 @@
+spring:
+  rabbitmq:
+    host: 192.168.0.110  # RabbitMQ服务的地址，默认localhost
+    port: 5672  # RabbitMQ的端口，默认5672。
+    username:  # 访问RabbitMQ的用户名，默认guest
+    password:  # 访问RabbitMQ的密码，默认guest
+    virtual-host: /  # 访问RabbitMQ的哪一个虚拟主机，默认为 /

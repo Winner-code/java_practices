@@ -1,0 +1,55 @@
+
+#设置端口号
+server:
+  port: 8081
+#设置应用名称
+spring:
+  application:
+    name: cloud-gateway
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false #关闭Gateway服务注册和发现的功能
+          lower-case-service-id: true #将请求路径上的服务名配置为小写
+      #手工绑定路由规则
+      routes:
+        - id: service01 # 唯一命名
+          uri: lb://service01 # 转发路径，lb 代表 loadbalance，即从 Eureka 中获取的服务列表负载均衡器。 openfeign-client 即服务名称，相当于 http://localhost:8082/
+          predicates: # 定义映射
+            - Path=/aaa/**  # 发送到 Gateway 网关上的请求路径映射，此映射匹配的路径都会转发到 uri 上。 具体地址为： lb://openfeign-client/client/**
+          filters:
+            - StripPrefix=1 # 请求转发时，会自动过滤请求转发的第一节地址，即client。最终地址为： lb://openfeign-client/**
+            - AddRequestParameter=age,30  # 在请求中自动增加一个请求参数，参数名为 age，参数值为 30。可以用于提供固定参数。
+            - AddRequestParameter=name,TeacherWu r # 每个 AddRequestParameter过滤器，只能提供一个请求参数，提供多请求参数，需要定义多个过滤器。
+            - AddRequestParameter=token,123
+            - AddRequestHeader=myHeader,myHeaderValue # 在请求中自动增加一个请求头参数，参数名为myHeader，参数值为myHeaderValue。
+            - Authentication=token
+            - name: Hystrix  #开器Hystrix过滤器
+              args:
+                name: fallbackcmd # 熔断错误--固定写法
+                fallbackUri: forward:/fallback #设置Hystrix回调方法的请求路径，fallback为controller中的mapping地址
+
+        - id: service02
+          uri: lb://service02
+          predicates:
+            - Path=/bbb/**
+          filters:
+            - StripPrefix=1
+#设置注册中心连接信息
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+#hystrix服务降级
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          # 如果enabled设置为false，则请求超时交给ribbon控制,为true,则超时作为容错根据
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000 # 超时时间，默认1000ms
