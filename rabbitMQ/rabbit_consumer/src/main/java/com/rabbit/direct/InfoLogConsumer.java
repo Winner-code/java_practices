@@ -1,4 +1,4 @@
-package com.rabbit.consumer;
+package com.rabbit.direct;
 
 import org.springframework.amqp.rabbit.annotation.*;
 import org.springframework.stereotype.Component;

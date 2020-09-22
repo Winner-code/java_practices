@@ -2,7 +2,7 @@
 import com.entity.User;
 import com.rabbit.RabbitPublisherApp;
 import com.rabbit.fanoutsender.UserMessageSender;
-import com.rabbit.sender.LogMessageSender;
+import com.rabbit.directsender.LogMessageSender;
 import com.rabbit.topicsender.TopicMessageSender;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -92,7 +92,7 @@ public class TestPublisher {
     }
 
     @Test
-    public void testSend(){
+    public void testdirect(){
         Random r = new Random();
         // 发送10条消息。
         for(int i = 0 ; i < 10; i++){
