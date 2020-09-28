@@ -1,16 +1,14 @@
-package com.producer;
-
+package com.consumer;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
 
-public class HelloWorldProducer {
+public class HelloWorldConsumer {
     /**
-     * 生产消息
-     * @param msg
+     * 消费消息
      */
-    public void sendHelloWorldActiveMQ(String msg){
+    public void readHelloWorldActiveMQ(){
         //定义链接工厂
         ConnectionFactory connectionFactory = null;
         //定义链接对象
@@ -20,7 +18,7 @@ public class HelloWorldProducer {
         //目的地
         Destination destination = null;
         //发送者
-        MessageProducer producer = null;
+        MessageConsumer consumer = null;
         // 消息
         Message message = null;
 
@@ -55,34 +53,35 @@ public class HelloWorldProducer {
             //创建目的地，即队列的名称，消息的消费者需要通过此名称访问对应的队列
             destination = session.createQueue("helloworld-destination");
 
-            //创建消息的生产者
-            producer = session.createProducer(destination);
+            //创建消息的消费者
+            consumer = session.createConsumer(destination);
 
             //创建消息对象
-            message = session.createTextMessage(msg);
+            message = consumer.receive();
 
-            //发送消息
-            producer.send(message);
+            //处理消息
+            String msg = ((TextMessage) message).getText();
+            System.out.println("从ActiveMQ 服务中获取的文本信息"+msg);
 
         }catch (Exception e){
             e.printStackTrace();
         }finally {
             //回收消息发送者资源
-            if (producer != null){
+            if (consumer != null){
                 try{
-                    producer.close();
+                    consumer.close();
                 }catch (JMSException e){
                     e.printStackTrace();
                 }
             }
-            if (producer != null){
+            if (consumer != null){
                 try{
                     session.close();
                 }catch (JMSException e){
                     e.printStackTrace();
                 }
             }
-            if (producer != null){
+            if (consumer != null){
                 try{
                     connection.close();
                 }catch (JMSException e){
@@ -91,4 +90,5 @@ public class HelloWorldProducer {
             }
         }
     }
+
 }

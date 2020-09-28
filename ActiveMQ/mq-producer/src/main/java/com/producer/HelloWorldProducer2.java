@@ -5,12 +5,12 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
 
-public class HelloWorldProducer {
+public class HelloWorldProducer2 {
     /**
      * 生产消息
-     * @param msg
+     * @param
      */
-    public void sendHelloWorldActiveMQ(String msg){
+    public void sendHelloWorldActiveMQ(Users users){
         //定义链接工厂
         ConnectionFactory connectionFactory = null;
         //定义链接对象
@@ -53,13 +53,13 @@ public class HelloWorldProducer {
             session = connection.createSession(false,Session.AUTO_ACKNOWLEDGE);
 
             //创建目的地，即队列的名称，消息的消费者需要通过此名称访问对应的队列
-            destination = session.createQueue("helloworld-destination");
+            destination = session.createQueue("my-users");
 
             //创建消息的生产者
             producer = session.createProducer(destination);
 
             //创建消息对象
-            message = session.createTextMessage(msg);
+            message = session.createObjectMessage(users);
 
             //发送消息
             producer.send(message);
