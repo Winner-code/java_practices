@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jms="http://www.springframework.org/schema/jms"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:amq="http://activemq.apache.org/schema/core"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jms
+		http://www.springframework.org/schema/jms/spring-jms.xsd
+		http://activemq.apache.org/schema/core
+		http://activemq.apache.org/schema/core/activemq-core.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<!-- 需要创建一个连接工厂,连接ActiveMQ. ActiveMQConnectionFactory. 需要依赖ActiveMQ提供的amq标签 -->
+	<!-- amq:connectionFactory 是bean标签的子标签, 会在spring容器中创建一个bean对象. 可以为对象命名. 
+		类似: <bean id="" class="ActiveMQConnectionFactory"></bean> -->
+	<amq:connectionFactory brokerURL="tcp://192.168.70.151:61616"
+		userName="admin" password="admin" id="amqConnectionFactory" />
+		
+	<!-- 配置池化的ConnectionFactory。 为连接ActiveMQ的connectionFactory提供连接池 -->
+	<bean id="pooledConnectionFactory" class="org.apache.activemq.pool.PooledConnectionFactoryBean">
+		<property name="connectionFactory" ref="amqConnectionFactory"></property>
+		<property name="maxConnections" value="10"></property>
+	</bean>
+	<!-- spring管理JMS相关代码的时候,必须依赖jms标签库. spring-jms提供的标签库. -->
+	<!-- 定义Spring-JMS中的连接工厂对象 CachingConnectionFactory - spring框架提供的连接工厂对象. 
+		不能真正的访问MOM容器. 类似一个工厂的代理对象. 需要提供一个真实工厂,实现MOM容器的连接访问. -->
+	<!-- 配置有缓存的ConnectionFactory，session的缓存大小可定制。 -->
+	<bean id="connectionFactory"
+		class="org.springframework.jms.connection.CachingConnectionFactory">
+		<property name="targetConnectionFactory" ref="amqConnectionFactory"></property>
+		<property name="sessionCacheSize" value="3"></property>
+	</bean>
+
+	<!-- JmsTemplate配置 -->
+	<bean id="template" class="org.springframework.jms.core.JmsTemplate">
+		<!-- 给定连接工厂, 必须是spring创建的连接工厂. -->
+		<property name="connectionFactory" ref="connectionFactory"></property>
+		<!-- 可选 - 默认目的地命名 -->
+		<property name="defaultDestinationName" value="test-spring"></property>
+	</bean>
+</beans>
